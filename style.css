@@ -1,7 +1,7 @@
 @import "bourbon"
 @import "vars.sass"
 
-//В стилях убрать border и box-shadow
+//В стилях убрать border и box-shadow чтобы устранить полоску 
 //В media-запросах при складывании меню на 768px, прописать свой класс - display: block
 body
   font-size: 16px
