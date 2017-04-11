@@ -1,120 +1,113 @@
-@import "bourbon"
-@import "vars.sass"
+body{
+  font-size: 16px;
+  min-width: 320px;
+  position: relative;
+  line-height: 22px ; //минимальная высота строки текста
+  font-family: "RalewayRegular", sans-serif;
+  overflow-x: hidden ; //если контент большой, он скрывается за полем
+  color: #333333;
+}
+.hidden {
+  display: none;
+}
+.cmn-toggle-switch{  //сброс стилей браузера
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 108px;  //ширина кнопки
+  height: 96px;  //высота кнопки
+  font-size: 0;
+  text-indent: -9999px;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+}
 
-//В стилях убрать border и box-shadow
-//В media-запросах при складывании меню на 768px, прописать свой класс - display: block
-body
-  font-size: 16px
-  min-width: 320px
-  position: relative
-  line-height: em(22px)  //минимальная высота строки текста
-  font-family: "RalewayRegular", sans-serif
-  overflow-x: hidden  //если контент большой, он скрывается за полем
-  color: #333333
+.cmn-toggle-switch:focus{ 
+  outline: none;
+}    
+.cmn-toggle-switch span{ //свойства центральной линии
+  display: block;
+  position: absolute;
+  top: 45px;
+  left: 18px;
+  right: 18px;
+  height: 6px;
+  background: white;
+}
 
-.hidden 
-  display: none
+.cmn-toggle-switch span::before,
+.cmn-toggle-switch span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #fff;
+  content: "";
+}
 
-.cmn-toggle-switch  //сброс стилей браузера
-  display: block
-  position: relative
-  overflow: hidden
-  margin: 0
-  padding: 0
-  width: 108px  //ширина кнопки
-  height: 96px  //высота кнопки
-  font-size: 0
-  text-indent: -9999px
-  @include appearance(none)//используется bourbon 
-  box-shadow: none
-  border-radius: none
-  border: none
-  cursor: pointer
-  @include transition(background (0.3s))//используется bourbon 
+.cmn-toggle-switch span::before{ 
+  top: -27px;
+}
 
-
-.cmn-toggle-switch:focus 
-  outline: none
-    
-.cmn-toggle-switch span //свойства центральной линии
-  display: block
-  position: absolute
-  top: 45px
-  left: 18px
-  right: 18px
-  height: 6px
-  background: white
-
-
-.cmn-toggle-switch span::before,//свойства верхней и нижней линии
-.cmn-toggle-switch span::after 
-  position: absolute
-  display: block
-  left: 0
-  width: 100%
-  height: 6px
-  background-color: #fff
-  content: ""
-
-
-.cmn-toggle-switch span::before 
-  top: -27px
-
-
-.cmn-toggle-switch span::after 
-  bottom: -27px
-
+.cmn-toggle-switch span::after{ 
+  bottom: -27px;
+}
 /**
  * Style 2
  *
  * Hamburger  to "x" (htx). Takes on a hamburger shape, bars slide
  * down to center and transform into an "x".
  */
-.cmn-toggle-switch__htx 
-  background-color: #ff3264
+.cmn-toggle-switch__htx{ 
+  background-color: #516071;
+}
 
-
-.cmn-toggle-switch__htx span  
-  @include transition(background (0s 0,3s))
-
+.cmn-toggle-switch__htx span{  
+  transition:background 0s, 0,3s;
+}
 .cmn-toggle-switch__htx span::before,
-.cmn-toggle-switch__htx span::after 
-  @include transition-duration(0.3s, 0.3s)
-  @include transition-delay(0.3s, 0s)
-
-.cmn-toggle-switch__htx span::before  
+.cmn-toggle-switch__htx span::after{ 
+  transition-duration:0.3s, 0.3s;
+  transition-delay:0.3s, 0s;
+}
+.cmn-toggle-switch__htx span::before{  
   /* autoprefixer: off */
-  transition-property: top, transform 
- 
+  transition-property: top, transform; 
+ }
 
-.cmn-toggle-switch__htx span::after
+.cmn-toggle-switch__htx span::after{
   /* autoprefixer: off */
   transition-property: bottom, transform 
-
+}
   
 /*********************************************** active state, i.e. menu open */
-.cmn-toggle-switch__htx.active 
-  background-color: #cb0032
+.cmn-toggle-switch__htx.active{ 
+  background-color: #465667;
+}
 
+.cmn-toggle-switch__htx.active span{ 
+  background: none;
+}
 
-.cmn-toggle-switch__htx.active span 
-  background: none
+.cmn-toggle-switch__htx.active span::before{ 
+  top: 0;
+  transform: rotate(45deg);
+}
 
-
-.cmn-toggle-switch__htx.active span::before 
-  top: 0
-  @include transform(rotate(45deg))
-
-
-.cmn-toggle-switch__htx.active span::after 
-  bottom: 0
-  @include transform(rotate(-45deg))
-
+.cmn-toggle-switch__htx.active span::after{ 
+  bottom: 0;
+  transform:rotate(-45deg);
+}
 
 .cmn-toggle-switch__htx.active span::before,
-.cmn-toggle-switch__htx.active span::after
-  @include transition-delay(0s, 0.3s)
-  
+.cmn-toggle-switch__htx.active span::after{
+  transition-delay:0s, 0.3s;
+}  
   
 
 
