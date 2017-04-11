@@ -1,0 +1,1 @@
+Вот здесь исходники и пояснения: http://ruseller.com/lessons.php?rub=2&id=2301
